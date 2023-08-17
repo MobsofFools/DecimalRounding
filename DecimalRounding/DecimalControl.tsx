@@ -31,7 +31,7 @@ const DecimalControl = (props:IDecimalControlProps) => {
         console.log(e.currentTarget.value)
     }
     const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
-        if(typeof controlValue === 'string')
+        if(typeof controlValue === 'string' && length > 0)
         {
             const result = numberRounding(Number.parseFloat(controlValue),roundDirection)
             setControlValue(result);
@@ -40,7 +40,7 @@ const DecimalControl = (props:IDecimalControlProps) => {
     }
     return(
         <div className="pa-bc flexbox" style={{display:"flex"}}>
-            <input className={css`padding:4px;border:none; width:100%; &:hover:{border:1px solid black }; box-sizing:border-box;`} value={controlValue} onChange={handleChange} onBlur={handleBlur} tabIndex={0} placeholder="---"></input>
+            <input className={css`padding:4px;border:none; width:100%; &:hover:{border:1px solid black }; box-sizing:border-box;`} aria-label={context?.parameters.boundField.attributes?.DisplayName}value={controlValue} onChange={handleChange} onBlur={handleBlur} tabIndex={0} placeholder="---"></input>
         </div>
     )
 }
