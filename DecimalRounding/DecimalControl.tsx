@@ -1,4 +1,5 @@
 import React from "react";
+import { css } from "@emotion/css";
 import { ChangeEvent, FocusEvent, useState } from "react";
 import { IInputs } from "./generated/ManifestTypes";
 
@@ -6,16 +7,23 @@ export type IDecimalControlProps = {
     onChange:(numberData: number|undefined) => void;
     context?:ComponentFramework.Context<IInputs>;
 }
+
 const DecimalControl = (props:IDecimalControlProps) => {
     const {onChange, context} = props;
-    const [controlValue, setControlValue] = useState<number|string>(context?.parameters.boundField.raw!);
+    const [controlValue, setControlValue] = useState<number|string|undefined>(context?.parameters.boundField.raw!);
     const roundDirection = context?.parameters.roundDirection.raw!;
     function numberRounding (number:number,direction?:string) {
-        if(direction === "up"){
-            return Math.ceil(number)
+        if(typeof number === 'number')
+        {
+            if(direction === "up"){
+                return Math.ceil(number)
+            }
+            else{
+                return Math.floor(number)
+            }
         }
         else{
-            return Math.floor(number)
+            return undefined;
         }
     }
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,8 +39,8 @@ const DecimalControl = (props:IDecimalControlProps) => {
         }
     }
     return(
-        <div className="pa-bc flexbox">
-            <input className="pa-bc" value={controlValue} onChange={handleChange} onBlur={handleBlur} tabIndex={0} placeholder="---" style={{}} type='number'></input>
+        <div className="pa-bc flexbox" style={{display:"flex"}}>
+            <input className={css`padding:4px;border:none; width:100%; &:hover:{border:1px solid black }; box-sizing:border-box;`} value={controlValue} onChange={handleChange} onBlur={handleBlur} tabIndex={0} placeholder="---"></input>
         </div>
     )
 }
