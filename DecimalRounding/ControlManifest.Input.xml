@@ -19,7 +19,7 @@
     </external-service-usage>
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <property name="boundField" display-name-key="Bound Field" description-key="Field" of-type="Whole.None" usage="bound" required="true" />
-    <property name="roundDirection" display-name-key="Rounding Direction" description-key="'up' or 'down'" of-type="SingleLine.Text" usage="input" required="true" />
+    <property name="roundDirection" display-name-key="Rounding Direction" description-key="up or down`" of-type="SingleLine.Text" usage="input" required="true" />
     <!--
       Property node's of-type attribute can be of-type-group attribute.
       Example:
