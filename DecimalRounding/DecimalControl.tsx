@@ -32,7 +32,7 @@ const DecimalControl = (props:IDecimalControlProps) => {
     }
     return(
         <div className="pa-bc flexbox">
-            <input className="pa-bc" value={controlValue} onChange={handleChange} onBlur={handleBlur} tabIndex={0} placeholder="---"></input>
+            <input className="pa-bc" value={controlValue} onChange={handleChange} onBlur={handleBlur} tabIndex={0} placeholder="---" style={{}} type='number'></input>
         </div>
     )
 }
