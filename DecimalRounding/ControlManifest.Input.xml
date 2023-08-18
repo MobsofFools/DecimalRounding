@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="utf-8" ?>
 <manifest>
-  <control namespace="dev" constructor="DecimalRounding" version="0.0.1" display-name-key="DecimalRounding" description-key="DecimalRounding description" control-type="virtual" >
+  <control namespace="CAEFISS" constructor="DecimalRounding" version="0.0.1" display-name-key="DecimalRounding" description-key="DecimalRounding description" control-type="virtual" >
     <!--external-service-usage node declares whether this 3rd party PCF control is using external service or not, if yes, this control will be considered as premium and please also add the external domain it is using.
     If it is not using any external service, please set the enabled="false" and DO NOT add any domain below. The "enabled" will be false by default.
     Example1:
