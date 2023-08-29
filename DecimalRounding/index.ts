@@ -12,6 +12,7 @@ export class DecimalRounding implements ComponentFramework.ReactControl<IInputs,
     }
     private notifyChange(numberData:number|undefined){
         this._outputVariable = numberData;
+        console.log("notify change");
         this.notifyOutputChanged();
     }
 
@@ -42,6 +43,7 @@ export class DecimalRounding implements ComponentFramework.ReactControl<IInputs,
      */
     public updateView(context: ComponentFramework.Context<IInputs>): React.ReactElement {
         this._props.context = context;
+        console.log(`update view ${context.parameters.boundField.attributes?.DisplayName}`, context.parameters.boundField.raw!)
         return React.createElement(
             DecimalControl, this._props
         );
@@ -52,6 +54,7 @@ export class DecimalRounding implements ComponentFramework.ReactControl<IInputs,
      * @returns an object based on nomenclature defined in manifest, expecting object[s] for property marked as “bound” or “output”
      */
     public getOutputs(): IOutputs {
+        console.log(`output ${this._props.context?.parameters.boundField.attributes?.DisplayName}`,this._outputVariable);
         return { 
             boundField:this._outputVariable
         };
